@@ -2,42 +2,185 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.MainPage">
 
-    <StackLayout Spacing="5">
-        <!-- Total Money Display -->
-        <Label x:Name="TotalMoneyLabel" 
-               Text="Total Money: $0" 
-               FontSize="Large" 
-               HorizontalOptions="Center" 
-               VerticalOptions="Start"/>
+    <ScrollView>
+        <StackLayout Spacing="5">
+            <!-- Total Money Display -->
+            <Label x:Name="TotalMoneyLabel" 
+                   Text="Total Money: $0" 
+                   FontSize="Large" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
 
-        <!-- Lemonade Stand Count Display -->
-        <Label x:Name="LemonadeStandCountLabel" 
-               Text="Lemonade Stands: 1" 
-               FontSize="Large" 
-               HorizontalOptions="Center" 
-               VerticalOptions="Start"/>
+            <!-- Business UI Definitions -->
+            <!-- Lemonade Stand -->
+            <Label x:Name="LemonadeStandCountLabel" 
+                   Text="Lemonade Stands: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="LemonadeStandButton" 
+                    Text="Lemonade Stand ($1/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradeLemonadeStandButton" 
+                    Text="Buy More Lemonade Stands ($10)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
 
-        <!-- Business Buttons -->
-        <Button x:Name="BusinessButton" 
-                Text="Lemonade Stand ($1/click)" 
-                Clicked="OnBusinessButtonClicked" 
-                HorizontalOptions="Center" 
-                VerticalOptions="CenterAndExpand"
-                Margin="0,2,0,2"/>
+            <!-- Newspaper -->
+            <Label x:Name="NewspaperCountLabel" 
+                   Text="Newspapers: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="NewspaperButton" 
+                    Text="Newspaper ($5/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradeNewspaperButton" 
+                    Text="Buy More Newspapers ($50)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
 
-        <Button x:Name="UpgradeButton" 
-                Text="Buy More Lemonade Stands ($10)" 
-                Clicked="OnUpgradeButtonClicked" 
-                HorizontalOptions="Center" 
-                VerticalOptions="CenterAndExpand"
-                Margin="0,2,0,2"/>
+            <!-- Car Wash -->
+            <Label x:Name="CarWashCountLabel" 
+                   Text="Car Washes: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="CarWashButton" 
+                    Text="Car Wash ($10/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradeCarWashButton" 
+                    Text="Buy More Car Washes ($100)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
 
-        <!-- Buy Max Button -->
-        <Button x:Name="BuyMaxButton" 
-                Text="Buy Max Lemonade Stands" 
-                Clicked="OnBuyMaxButtonClicked" 
-                HorizontalOptions="Center" 
-                VerticalOptions="CenterAndExpand"
-                Margin="0,2,0,2"/>
-    </StackLayout>
+            <!-- Pizza Shop -->
+            <Label x:Name="PizzaShopCountLabel" 
+                   Text="Pizza Shops: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="PizzaShopButton" 
+                    Text="Pizza Shop ($20/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradePizzaShopButton" 
+                    Text="Buy More Pizza Shops ($200)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+
+            <!-- Donut Shop -->
+            <Label x:Name="DonutShopCountLabel" 
+                   Text="Donut Shops: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="DonutShopButton" 
+                    Text="Donut Shop ($50/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradeDonutShopButton" 
+                    Text="Buy More Donut Shops ($500)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+
+            <!-- Shrimp Boat -->
+            <Label x:Name="ShrimpBoatCountLabel" 
+                   Text="Shrimp Boats: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="ShrimpBoatButton" 
+                    Text="Shrimp Boat ($100/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradeShrimpBoatButton" 
+                    Text="Buy More Shrimp Boats ($1000)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+
+            <!-- Hockey Team -->
+            <Label x:Name="HockeyTeamCountLabel" 
+                   Text="Hockey Teams: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="HockeyTeamButton" 
+                    Text="Hockey Team ($500/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradeHockeyTeamButton" 
+                    Text="Buy More Hockey Teams ($5000)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+
+            <!-- Movie Theater -->
+            <Label x:Name="MovieTheaterCountLabel" 
+                   Text="Movie Theaters: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="MovieTheaterButton" 
+                    Text="Movie Theater ($1000/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradeMovieTheaterButton" 
+                    Text="Buy More Movie Theaters ($10000)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+
+            <!-- Bank -->
+            <Label x:Name="BankCountLabel" 
+                   Text="Banks: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="BankButton" 
+                    Text="Bank ($5000/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradeBankButton" 
+                    Text="Buy More Banks ($50000)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+
+            <!-- Oil Refinery -->
+            <Label x:Name="OilRefineryCountLabel" 
+                   Text="Oil Refineries: 1" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Start"/>
+            <Button x:Name="OilRefineryButton" 
+                    Text="Oil Refinery ($10000/click)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+            <Button x:Name="UpgradeOilRefineryButton" 
+                    Text="Buy More Oil Refineries ($100000)" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="0,2,0,2"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
