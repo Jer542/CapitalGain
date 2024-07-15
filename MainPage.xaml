@@ -1,25 +1,43 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+    <StackLayout Spacing="5">
+        <!-- Total Money Display -->
+        <Label x:Name="TotalMoneyLabel" 
+               Text="Total Money: $0" 
+               FontSize="Large" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Start"/>
 
-            <Label
-                Text="Capital Gain"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
+        <!-- Lemonade Stand Count Display -->
+        <Label x:Name="LemonadeStandCountLabel" 
+               Text="Lemonade Stands: 1" 
+               FontSize="Large" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Start"/>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
-        </VerticalStackLayout>
-    </ScrollView>
+        <!-- Business Buttons -->
+        <Button x:Name="BusinessButton" 
+                Text="Lemonade Stand ($1/click)" 
+                Clicked="OnBusinessButtonClicked" 
+                HorizontalOptions="Center" 
+                VerticalOptions="CenterAndExpand"
+                Margin="0,2,0,2"/>
 
+        <Button x:Name="UpgradeButton" 
+                Text="Buy More Lemonade Stands ($10)" 
+                Clicked="OnUpgradeButtonClicked" 
+                HorizontalOptions="Center" 
+                VerticalOptions="CenterAndExpand"
+                Margin="0,2,0,2"/>
+
+        <!-- Buy Max Button -->
+        <Button x:Name="BuyMaxButton" 
+                Text="Buy Max Lemonade Stands" 
+                Clicked="OnBuyMaxButtonClicked" 
+                HorizontalOptions="Center" 
+                VerticalOptions="CenterAndExpand"
+                Margin="0,2,0,2"/>
+    </StackLayout>
 </ContentPage>

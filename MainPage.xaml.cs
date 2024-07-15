@@ -2,24 +2,55 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        private double totalMoney = 0;
+        private int lemonadeStandCount = 1;
+        private double moneyPerClick = 1;
 
         public MainPage()
         {
             InitializeComponent();
+            UpdateLemonadeStandCountDisplay();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void OnBusinessButtonClicked(object sender, EventArgs e)
         {
-            count++;
+            totalMoney += moneyPerClick * lemonadeStandCount;
+            UpdateTotalMoneyDisplay();
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        private void OnUpgradeButtonClicked(object sender, EventArgs e)
+        {
+            const double upgradeCost = 10;
+            if (totalMoney >= upgradeCost)
+            {
+                totalMoney -= upgradeCost;
+                lemonadeStandCount++;
+                UpdateTotalMoneyDisplay();
+                UpdateLemonadeStandCountDisplay();
+            }
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void OnBuyMaxButtonClicked(object sender, EventArgs e)
+        {
+            const double upgradeCost = 10;
+            int maxAffordable = (int)(totalMoney / upgradeCost);
+            if (maxAffordable > 0)
+            {
+                lemonadeStandCount += maxAffordable;
+                totalMoney -= maxAffordable * upgradeCost;
+                UpdateTotalMoneyDisplay();
+                UpdateLemonadeStandCountDisplay();
+            }
+        }
+
+        private void UpdateTotalMoneyDisplay()
+        {
+            TotalMoneyLabel.Text = $"Total Money: ${totalMoney}";
+        }
+
+        private void UpdateLemonadeStandCountDisplay()
+        {
+            LemonadeStandCountLabel.Text = $"Lemonade Stands: {lemonadeStandCount}";
         }
     }
-
 }
