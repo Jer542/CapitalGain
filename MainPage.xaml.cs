@@ -5,7 +5,7 @@ namespace App
 {
     public partial class MainPage : ContentPage
     {
-        private double totalMoney = 0;
+        private decimal totalMoney = 0;
         private List<Business> businesses = new List<Business>();
 
         public MainPage()
@@ -19,9 +19,9 @@ namespace App
         {
             businesses.Add(new Business(
                 "Lemonade Stands",
-                1,
-                10,
-                1,
+                1m,
+                10m,
+                1m,
                 LemonadeStandButton,
                 UpgradeLemonadeStandButton,
                 LemonadeStandCountLabel,
@@ -29,9 +29,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Newspapers",
-                5,
-                50,
-                0,
+                5m,
+                50m,
+                0m,
                 NewspaperButton,
                 UpgradeNewspaperButton,
                 NewspaperCountLabel,
@@ -39,9 +39,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Car Washes",
-                10,
-                100,
-                0,
+                10m,
+                100m,
+                0m,
                 CarWashButton,
                 UpgradeCarWashButton,
                 CarWashCountLabel,
@@ -49,9 +49,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Pizza Shops",
-                20,
-                200,
-                0,
+                20m,
+                200m,
+                0m,
                 PizzaShopButton,
                 UpgradePizzaShopButton,
                 PizzaShopCountLabel,
@@ -59,9 +59,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Donut Shops",
-                50,
-                500,
-                0,
+                50m,
+                500m,
+                0m,
                 DonutShopButton,
                 UpgradeDonutShopButton,
                 DonutShopCountLabel,
@@ -69,9 +69,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Shrimp Boats",
-                100,
-                1000,
-                0,
+                100m,
+                1000m,
+                0m,
                 ShrimpBoatButton,
                 UpgradeShrimpBoatButton,
                 ShrimpBoatCountLabel,
@@ -79,9 +79,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Hockey Teams",
-                500,
-                5000,
-                0,
+                500m,
+                5000m,
+                0m,
                 HockeyTeamButton,
                 UpgradeHockeyTeamButton,
                 HockeyTeamCountLabel,
@@ -89,9 +89,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Movie Theaters",
-                1000,
-                10000,
-                0,
+                1000m,
+                10000m,
+                0m,
                 MovieTheaterButton,
                 UpgradeMovieTheaterButton,
                 MovieTheaterCountLabel,
@@ -99,9 +99,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Banks",
-                5000,
-                50000,
-                0,
+                5000m,
+                50000m,
+                0m,
                 BankButton,
                 UpgradeBankButton,
                 BankCountLabel,
@@ -109,9 +109,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Oil Refineries",
-                10000,
-                100000,
-                0,
+                10000m,
+                100000m,
+                0m,
                 OilRefineryButton,
                 UpgradeOilRefineryButton,
                 OilRefineryCountLabel,
@@ -142,7 +142,7 @@ namespace App
 
         private void UpdateTotalMoneyDisplay()
         {
-            TotalMoneyLabel.Text = $"Total Money: ${totalMoney}";
+            TotalMoneyLabel.Text = $"Total Money: ${Math.Ceiling(totalMoney)}";
         }
     }
 }
