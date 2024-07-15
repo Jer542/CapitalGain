@@ -1,22 +1,24 @@
-﻿namespace App.Models
+﻿using System.Numerics;  // Add this namespace for BigInteger
+
+namespace App.Models
 {
     public class Business
     {
         public string Name { get; set; }
-        public decimal IncomePerClick { get; set; }
-        public decimal UpgradeCost { get; set; }
-        public decimal Count { get; set; }
+        public BigInteger IncomePerClick { get; set; }
+        public BigInteger UpgradeCost { get; set; }
+        public BigInteger Count { get; set; }
         public bool IsUnlocked { get; set; }
         public Button GenerateButton { get; set; }
         public Button UpgradeButton { get; set; }
         public Label CountLabel { get; set; }
 
-        public Business(string name, decimal incomePerClick, decimal upgradeCost, decimal count, Button generateButton, Button upgradeButton, Label countLabel, bool isUnlocked = false)
+        public Business(string name, BigInteger incomePerClick, BigInteger upgradeCost, BigInteger count, Button generateButton, Button upgradeButton, Label countLabel, bool isUnlocked = false)
         {
             Name = name;
             IncomePerClick = incomePerClick;
             UpgradeCost = upgradeCost;
-            Count = Math.Ceiling(count);
+            Count = count;
             GenerateButton = generateButton;
             UpgradeButton = upgradeButton;
             CountLabel = countLabel;
@@ -25,7 +27,7 @@
             UpdateUI();
         }
 
-        public void GenerateIncome(ref decimal totalMoney)
+        public void GenerateIncome(ref BigInteger totalMoney)
         {
             if (IsUnlocked && Count > 0)
             {
@@ -33,19 +35,18 @@
             }
         }
 
-        public bool BuyMax(ref decimal totalMoney)
+        public bool BuyMax(ref BigInteger totalMoney)
         {
             if (IsUnlocked)
             {
-                decimal maxCanBuy = Math.Floor(totalMoney / UpgradeCost);
+                BigInteger maxCanBuy = totalMoney / UpgradeCost;
                 if (maxCanBuy > 0)
                 {
-                    decimal cost = maxCanBuy * UpgradeCost;
+                    BigInteger cost = maxCanBuy * UpgradeCost;
                     if (totalMoney >= cost)
                     {
                         totalMoney -= cost;
                         Count += maxCanBuy;
-                        Count = Math.Ceiling(Count);
                         UpdateCountLabel();
                         return true;
                     }

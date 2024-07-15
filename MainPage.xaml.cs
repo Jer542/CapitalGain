@@ -1,11 +1,12 @@
 ﻿using App.Models;
 using System.Collections.Generic;
+using System.Numerics;  // Add this namespace for BigInteger
 
 namespace App
 {
     public partial class MainPage : ContentPage
     {
-        private decimal totalMoney = 0;
+        private BigInteger totalMoney = 0;
         private List<Business> businesses = new List<Business>();
 
         public MainPage()
@@ -19,9 +20,9 @@ namespace App
         {
             businesses.Add(new Business(
                 "Lemonade Stands",
-                1m,
-                10m,
-                1m,
+                new BigInteger(10000000000000000000),
+                new BigInteger(10),
+                new BigInteger(1),
                 LemonadeStandButton,
                 UpgradeLemonadeStandButton,
                 LemonadeStandCountLabel,
@@ -29,9 +30,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Newspapers",
-                5m,
-                50m,
-                0m,
+                new BigInteger(5),
+                new BigInteger(50),
+                new BigInteger(0),
                 NewspaperButton,
                 UpgradeNewspaperButton,
                 NewspaperCountLabel,
@@ -39,9 +40,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Car Washes",
-                10m,
-                100m,
-                0m,
+                new BigInteger(10),
+                new BigInteger(100),
+                new BigInteger(0),
                 CarWashButton,
                 UpgradeCarWashButton,
                 CarWashCountLabel,
@@ -49,9 +50,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Pizza Shops",
-                20m,
-                200m,
-                0m,
+                new BigInteger(20),
+                new BigInteger(200),
+                new BigInteger(0),
                 PizzaShopButton,
                 UpgradePizzaShopButton,
                 PizzaShopCountLabel,
@@ -59,9 +60,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Donut Shops",
-                50m,
-                500m,
-                0m,
+                new BigInteger(50),
+                new BigInteger(500),
+                new BigInteger(0),
                 DonutShopButton,
                 UpgradeDonutShopButton,
                 DonutShopCountLabel,
@@ -69,9 +70,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Shrimp Boats",
-                100m,
-                1000m,
-                0m,
+                new BigInteger(100),
+                new BigInteger(1000),
+                new BigInteger(0),
                 ShrimpBoatButton,
                 UpgradeShrimpBoatButton,
                 ShrimpBoatCountLabel,
@@ -79,9 +80,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Hockey Teams",
-                500m,
-                5000m,
-                0m,
+                new BigInteger(500),
+                new BigInteger(5000),
+                new BigInteger(0),
                 HockeyTeamButton,
                 UpgradeHockeyTeamButton,
                 HockeyTeamCountLabel,
@@ -89,9 +90,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Movie Theaters",
-                1000m,
-                10000m,
-                0m,
+                new BigInteger(1000),
+                new BigInteger(10000),
+                new BigInteger(0),
                 MovieTheaterButton,
                 UpgradeMovieTheaterButton,
                 MovieTheaterCountLabel,
@@ -99,9 +100,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Banks",
-                5000m,
-                50000m,
-                0m,
+                new BigInteger(5000),
+                new BigInteger(50000),
+                new BigInteger(0),
                 BankButton,
                 UpgradeBankButton,
                 BankCountLabel,
@@ -109,9 +110,9 @@ namespace App
 
             businesses.Add(new Business(
                 "Oil Refineries",
-                10000m,
-                100000m,
-                0m,
+                new BigInteger(10000),
+                new BigInteger(100000),
+                new BigInteger(0),
                 OilRefineryButton,
                 UpgradeOilRefineryButton,
                 OilRefineryCountLabel,
@@ -142,7 +143,7 @@ namespace App
 
         private void UpdateTotalMoneyDisplay()
         {
-            TotalMoneyLabel.Text = $"Total Money: ${Math.Ceiling(totalMoney)}";
+            TotalMoneyLabel.Text = $"Total Money: ${totalMoney:N0}";
         }
     }
 }
