@@ -24,88 +24,98 @@ namespace App
                 1,
                 LemonadeStandButton,
                 UpgradeLemonadeStandButton,
-                LemonadeStandCountLabel));
+                LemonadeStandCountLabel,
+                isUnlocked: true));
 
             businesses.Add(new Business(
                 "Newspapers",
                 5,
                 50,
-                1,
+                0,
                 NewspaperButton,
                 UpgradeNewspaperButton,
-                NewspaperCountLabel));
+                NewspaperCountLabel,
+                isUnlocked: true));
 
             businesses.Add(new Business(
                 "Car Washes",
                 10,
                 100,
-                1,
+                0,
                 CarWashButton,
                 UpgradeCarWashButton,
-                CarWashCountLabel));
+                CarWashCountLabel,
+                isUnlocked: true));
 
             businesses.Add(new Business(
                 "Pizza Shops",
                 20,
                 200,
-                1,
+                0,
                 PizzaShopButton,
                 UpgradePizzaShopButton,
-                PizzaShopCountLabel));
+                PizzaShopCountLabel,
+                isUnlocked: true));
 
             businesses.Add(new Business(
                 "Donut Shops",
                 50,
                 500,
-                1,
+                0,
                 DonutShopButton,
                 UpgradeDonutShopButton,
-                DonutShopCountLabel));
+                DonutShopCountLabel,
+                isUnlocked: true));
 
             businesses.Add(new Business(
                 "Shrimp Boats",
                 100,
                 1000,
-                1,
+                0,
                 ShrimpBoatButton,
                 UpgradeShrimpBoatButton,
-                ShrimpBoatCountLabel));
+                ShrimpBoatCountLabel,
+                isUnlocked: true));
 
             businesses.Add(new Business(
                 "Hockey Teams",
                 500,
                 5000,
-                1,
+                0,
                 HockeyTeamButton,
                 UpgradeHockeyTeamButton,
-                HockeyTeamCountLabel));
+                HockeyTeamCountLabel,
+                isUnlocked: true));
 
             businesses.Add(new Business(
                 "Movie Theaters",
                 1000,
                 10000,
-                1,
+                0,
                 MovieTheaterButton,
                 UpgradeMovieTheaterButton,
-                MovieTheaterCountLabel));
+                MovieTheaterCountLabel,
+                isUnlocked: true));
 
             businesses.Add(new Business(
                 "Banks",
                 5000,
                 50000,
-                1,
+                0,
                 BankButton,
                 UpgradeBankButton,
-                BankCountLabel));
+                BankCountLabel,
+                isUnlocked: true));
 
             businesses.Add(new Business(
                 "Oil Refineries",
                 10000,
                 100000,
-                1,
+                0,
                 OilRefineryButton,
                 UpgradeOilRefineryButton,
-                OilRefineryCountLabel));
+                OilRefineryCountLabel,
+                isUnlocked: true));
 
             foreach (var business in businesses)
             {
@@ -123,7 +133,7 @@ namespace App
 
         private void OnUpgradeClicked(Business business)
         {
-            if (business.Upgrade(ref totalMoney))
+            if (business.BuyMax(ref totalMoney))
             {
                 business.UpdateCountLabel();
                 UpdateTotalMoneyDisplay();
